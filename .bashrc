@@ -116,3 +116,4 @@ bind '"\e[B": history-search-forward'
 # Alias
 alias la="ls -a"
 alias ll="ls -l"
+alias lla="ls -la"
