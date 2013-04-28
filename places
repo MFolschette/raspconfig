@@ -1,2 +1,3 @@
 .bashrc ~/.bashrc
 vsftpd.conf /etc/vsftpd.conf
+vsftpd.chroot_list /etc/vsftpd.chroot_list
