@@ -117,3 +117,5 @@ bind '"\e[B": history-search-forward'
 alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
+## Lister les utilisateurs connectés au serveur FTP
+alias vsftpdusers='ps -fe | grep "ftpd" | grep -v "grep\|nobody\|root" | cut -f 1 -d " " | sort'
