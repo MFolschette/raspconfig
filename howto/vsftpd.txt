@@ -1,0 +1,25 @@
+vsftpd
+======
+
+... Config générale (ports etc.)
+
+— Utilisateur anonyme
+Config simple mais failles potentielles
+Démarche :
+... Config
+
+— Utilisateurs identifiés
+Créer un ou des utilisateurs unix
+-> gestion fine des persmissions
+-> possibilité de partage de dossiers / droits
+Démarche :
+... Attention : dossier racine non inscriptible
+... Config
+
+Exemple :
+— utilisateur anonyme pour partage de fichiers publics
+— deux utilisateurs partageant un dossier confidentiel avec des droits différents :
+  * créer deux utilisateurs unix a et b
+  * créer le dossier FTP dans le dossier personnel de a (a aura les droits d'écriture)
+  * dupliquer ce dossier ftp à l'emplacement du dossier FTP de b (b aura seulement les droits de lecture) (cf. mount --bind ou fstab)
+
