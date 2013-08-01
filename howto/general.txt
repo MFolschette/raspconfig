@@ -1,0 +1,20 @@
+Généralités
+===========
+
+Internet = chaque nœud peut émettre aussi bien que recevoir
+
+Avantages :
++ Ça marche !
++ Apprentissage
++ Vous êtes maîtres de vos données
++ Potentiellement disponible 24h/24 (contrairement à un PC de bureau)
+
+Inconvénients :
+- Faible débit sortant
+- Nécessite de l'investissement
+- Problèmes de redondance/sûreté des données
+- Problèmes de sécurité
+
+Références :
+- Benjamin Bayart, Minitel 2.0
+- 
