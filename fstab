@@ -2,9 +2,10 @@ proc            /proc           proc    defaults          0       0
 /dev/mmcblk0p1  /boot           vfat    defaults          0       2
 /dev/mmcblk0p2  /               ext4    defaults,noatime  0       1
 # a swapfile is not a swap partition, so no using swapon|off from here on, use  dphys-swapfile swap[on|off]  for that
-/dev/mmcblk0p5  /media/ftp      ext4    defaults,auto,user,sync     0       0
-/dev/mmcblk0p6  /media/test     ext4    defaults,auto,user,sync     0       0
-/dev/mmcblk0p7  /media/toto     ext4    defaults,auto,user,sync     0       0
+#
+# Partitions supplémentaires réservées aux fichiers persos et aux dépôts Git
+/dev/mmcblk0p5  /home/max       ext4    defaults,auto,user,sync     0       0
+/dev/mmcblk0p6  /home/git       ext4    defaults,auto,user,sync     0       0
 # Disque dur USB
 /dev/sda1       /media/GEGE     vfat    rw,user,auto,uid=1003,gid=1004,umask=022,iocharset=utf8,codepage=850   0       0
 /dev/sda2       /media/HEHE     ntfs-3g rw,user,auto,uid=1003,gid=1004,nls=utf8,umask=022   0       0
