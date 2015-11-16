@@ -1,0 +1,48 @@
+Mise à jour auto du DNS Gandi
+=============================
+
+Méthode adaptée notamment au FAI Numericable qui ne propose pas d'IP statique,
+mais ne modifie l'IP qu'une fois tous les un à deux mois en moyenne.
+
+— Créer un dossier Gandi-autoupdate dans le dossier personnel de l'utilisateur
+    et y copier le fichier Gandi-fr.py
+— Éditer ce fichier et modifier toutes les lignes marquées d'un « TODO »
+    selon votre situation, pour un unique domaine :
+  * La clef API (variable apikey) est une chaîne de 15 caractères disponible à
+      https://www.gandi.net/admin/apixml/
+  * Le nom de domaine (variable mydomain) est le nom de domaine acheté
+      sur Gandi (tel que « gandi.net ») sans sous-domaine.
+  * Les noms de sous-domaines (enregistrements myrecordN) sont
+      les sous-domaines qui seront impactés par la vérification
+      (tel que « www » pour www.gandi.net). Le type de sous-domaine est le plus
+      souvent « A », cela peut être vérifié sur l'interface de Gandi.
+  * L'id de la zone (varaible zone_id) est un nombre à 6 chiffres
+      disponible via l'interface Gandi : lors de l'édition du fichier de zone,
+      l'id se trouve dans la barre d'adresse, à la place du XXXXXX :
+        https://www.gandi.net/admin/domain/zone/XXXXXX/etc...
+— Enregistrer le fichier, et éventuellement le dupliquer et répéter
+    l'opération pour tous les autres domaines concernés.
+    Attention, toutes les informations en dehors de la clef API varient
+    entre les domaines.
+
+À la fin de cette étape, vous devez obtenir un fichier .py par domaine.
+Ceux-ci vous permettent de mettre automatiquement à jour l'IP dans le fichier
+de zone, si celle-ci est différente de celle déjà renseignée.
+Les scripts peuvent être exécutés manuellement, mais il est plus judicieux
+d'automatiser ce processus à l'aide du crontab :
+
+— Toujours avec le même utilisateur, taper :
+    crontab -e
+— À la fin du fichier, rajouter :
+      @hourly python /home/<nom_utilisateur>/Gandi-autoupdate/Gandi-autoupdate.py >> /home/<nom-utilisateur>/Gandi-autoupdate/Gandi-autoupdate.log
+— Éventuellement, ajouter une ligne du même type pour chaque fichier .py
+    relatif à un domaine.
+— Enregistrer et fermer l'éditeur (sous nano : Ctrl + O puis Ctrl + X).
+
+Cette opération aura pour effet, toutes les heures (@hourly), d'exécuter
+les scripts et d'ajouter la écran à un fichier log.
+
+Notez que la propagation DNS peut prendre plusieurs heures au moment
+d'un changement d'IP, mais que l'automatisation rend l'opération
+totalement indétectable la plupart du temps.
+

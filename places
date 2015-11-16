@@ -3,3 +3,5 @@ vsftpd.conf /etc/vsftpd.conf
 vsftpd.chroot_list /etc/vsftpd.chroot_list
 interfaces /etc/network/interfaces
 fstab /etc/fstab
+Gandi-autoupdate.py ~/Gandi-autoupdate
+
